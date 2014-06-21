@@ -1,0 +1,53 @@
+{
+    $OUT = '';
+
+    my $routing = $FetchMails{ "Routing" } || "YES" ;
+    if ( $routing eq "NO" ) {
+
+	# Users on LAN are not allowed to access to POP3 or IMAP4 
+	# servers on Internet.
+
+        # Block any outgoing connections to POP3 servers
+
+        $OUT .= "    /sbin/iptables --table nat --append PREROUTING\\\n";
+        $OUT .= "\t-i \$INTERNALIF -p tcp --dst ! \$LOCALIP --dport 110\\\n";
+	$OUT .= "\t--jump LOG --log-prefix \"denylogfetchmail: \"\n";
+        $OUT .= "    /sbin/iptables --table nat --append PREROUTING\\\n";
+        $OUT .= "\t-i \$INTERNALIF -p tcp --dst ! \$LOCALIP --dport 110 --jump DROP\n";
+
+        # Block any outgoing connections to IMAP4 servers
+
+        $OUT .= "    /sbin/iptables --table nat --append PREROUTING\\\n";
+        $OUT .= "\t-i \$INTERNALIF -p tcp --dst ! \$LOCALIP --dport 143\\\n";
+	$OUT .= "\t--jump LOG --log-prefix \"denylogfetchmail: \"\n";
+        $OUT .= "    /sbin/iptables --table nat --append PREROUTING\\\n";
+        $OUT .= "\t-i \$INTERNALIF -p tcp --dst ! \$LOCALIP --dport 143 --jump DROP\n";
+
+    }
+    my $routingSMTP = $FetchMails{ "RoutingSMTP" } || "YES" ;
+    if ( $routingSMTP eq "NO" ) {
+
+        # Users on LAN are not allowed to access to SMTP
+        # servers on Internet.
+
+        $OUT .= "    /sbin/iptables --table nat --append PREROUTING\\\n";
+        $OUT .= "\t-i \$INTERNALIF -p tcp --dst ! \$LOCALIP --dport 25\\\n";
+        $OUT .= "\t--jump LOG --log-prefix \"denylogfetchmail: \"\n";
+        $OUT .= "    /sbin/iptables --table nat --append PREROUTING\\\n";
+        $OUT .= "\t-i \$INTERNALIF -p tcp --dst ! \$LOCALIP --dport 25 --jump DROP\n";
+
+    }
+    my $routingNNTP = $FetchMails{ "RoutingNNTP" } || "YES" ;
+    if ( $routingNNTP eq "NO" ) {
+
+        # Users on LAN are not allowed to access to news
+        # servers on Internet.
+
+        $OUT .= "    /sbin/iptables --table nat --append PREROUTING\\\n";
+        $OUT .= "\t-i \$INTERNALIF -p tcp --dst ! \$LOCALIP --dport 119\\\n";
+        $OUT .= "\t--jump LOG --log-prefix \"denylogfetchmail: \"\n";
+        $OUT .= "    /sbin/iptables --table nat --append PREROUTING\\\n";
+        $OUT .= "\t-i \$INTERNALIF -p tcp --dst ! \$LOCALIP --dport 119 --jump DROP\n";
+
+    }
+}

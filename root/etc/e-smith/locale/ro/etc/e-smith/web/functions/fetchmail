@@ -1,0 +1,334 @@
+<lexicon lang="ro">
+    <entry>
+        <base>FORM_TITLE</base>
+        <trans>Configurați importul de Mailuri externe</trans>
+    </entry>
+    <entry>
+        <base>FIRST_PAGE_DESCRIPTION</base>
+	    <trans><![CDATA[ <p> Acest panou configurează importul de mailuri externe de către serverul SME Ce înseamnă aceasta?<br> Unii din utilizatorii serverului pot avea si conturi externe. De obicei, clientii de mail de la fiecare utilizator trebuei configurat să preia aceste mailuri externe. Utilizând acest panou de control, serverul SME poate fi configurat să preia mailurile din conturile externe direct în contul local al utilizatorului. Aceasta înlesnțte configurarea clienților locali.<br> Utilizând această metodă de import (și presupunând ca clienții de mail sunt setați in mod IMAP) înseaamnă ca mailurile vor fi salvate ca parte integrantă a salvărilor curente.<br> Alte funcționalități disponibile prin acest panou:<br> - O adresă poate fi redistribuită mai multor adrese<br> - Puteți crea 'Cont Fantomă' : Mailurile destinate acetui cont vor fi redistribuite altor conturi.<br> - rapoare pentru evenimetele casutelor de mail.<br> ]]></trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_SERVICE_0</base>
+        <trans>Activați import de mesaje</trans>
+    </entry>
+    <entry>
+        <base>SERVICE_0</base>
+        <trans>Importul de mailuri este dezactivat</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_SERVICE_1</base>
+        <trans>Dezactivați import mailuri</trans>
+    </entry>
+    <entry>
+        <base>SERVICE_1</base>
+        <trans>Importul de mailuri este dezactivat</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTING_0</base>
+        <trans>Activați acces la POP și IMAP extern</trans>
+    </entry>
+    <entry>
+        <base>ROUTING_0</base>
+        <trans>Stațiile de lucru din LAN nu pot accesa servere POP și IMAP externe</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTING_1</base>
+        <trans>Dezactivați acces la serverul POP și IMAP din exterior </trans>
+    </entry>
+    <entry>
+        <base>ROUTING_1</base>
+        <trans>Stațiile de lucru din LAN pot accesa servere POP și IMAP externe</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGSMTP_0</base>
+        <trans>Activati accesul la serverul SMTP din exterior</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGSMTP_0</base>
+        <trans>Stațiile de lucru din LAN nu pot accesa servere SMTP externe</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGSMTP_1</base>
+        <trans>Dezactivati accesul la serverul SMTP din exterior</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGSMTP_1</base>
+        <trans>Stațiile de lucru din LAN pot accesa servere SMTP externe</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGSMTPPROXY_0</base>
+        <trans>Forțați conexiunile SMTP prin proxy-ul SME</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGSMTPPROXY_0</base>
+        <trans>Stațiile de lucru din LAN au acces direct la servere externe SMTP</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGSMTPPROXY_1</base>
+        <trans>Permiteți conexiuni directe SMTP</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGSMTPPROXY_1</base>
+        <trans>Conexiunile SMTP din LAN sunt fortate prin SME Proxy de pe server</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGNNTP_0</base>
+        <trans>Activați accesul la servere de știri externe</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGNNTP_0</base>
+        <trans>Stațiile de lucru din LAN nu pot accesa servere de știri externe</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGNNTP_1</base>
+        <trans>Dezactivați accesul extern la serverul de știri</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGNNTP_1</base>
+        <trans>Stațiile de lucru din rețeaua internă pot accesa servere de știri externe</trans>
+    </entry>
+    <entry>
+        <base>SHOW_FETCHMAIL_USERS</base>
+        <trans><![CDATA[ Mai jos este un tabel ce insumează utilizatorii curenți cu un sumar al setarilor de fetchmail pentru fiecare.<br> Aici puteți crea, modifica sau șterge regulile de fetchmail ale oricarui utilizator. ]]></trans>
+    </entry>
+    <entry>
+        <base>NO_USER_ACCOUNTS</base>
+        <trans>Deocamdată nu sunt definiți utilizatori în sistem.</trans>
+    </entry>
+    <entry>
+        <base>SET_GENERAL_TITLE</base>
+        <trans>Setări generale de reguli de preluare mail</trans>
+    </entry>
+    <entry>
+        <base>SET_GENERAL_PAGE_DESCRIPTION</base>
+        <trans><![CDATA[ <p> Setați informațiile generale pentru conturile de preluare mail extern.<br> Setările specifice se vor efectua în următoarea pagină. </p> ]]></trans>
+    </entry>
+    <entry>
+        <base>ERROR_NO_FINAL_RECIPIENT</base>
+        <trans><![CDATA[ Oups ! Nu există destinatar final pentru această regulă.<br> Mailurile pot fi livrate contului actual. Acest mod este selectat in cazul în care alegeți 'NU' pentru 'Ghost Mode'.<br> Mails pot fi livrate altor conturi locale. Acest mod este selectat când bifați una sau mai multe selecțiuni din opțiunile de mai jos.<br> Mailurile pot fi livrate unui cont extern. Acest mod este selectat dacă cîmpul "Adresă externă de retransmitere" este completat.<br> Trebuie setat cel puțin un destinatar. ]]></trans>
+    </entry>
+    <entry>
+        <base>LABEL_USER_ACCOUNT</base>
+        <trans>Cont utilizator</trans>
+    </entry>
+    <entry>
+        <base>LABEL_COPY_TO</base>
+        <trans>Copiază mailul către</trans>
+    </entry>
+    <entry>
+        <base>LABEL_GHOST</base>
+        <trans>Este un cont 'fantomă' (doar pentu a redistribui mailurile) ?</trans>
+    </entry>
+    <entry>
+        <base>LABEL_DEBUG</base>
+        <trans>Vreți să faciți debug la acest cont (actiunile de fethcmail vor fi notate în /var/log/mailog) ?</trans>
+    </entry>
+    <entry>
+        <base>LABEL_SPY</base>
+        <trans>Doriți ca acest cont să fie monitorizat de contul de 'admin' ?</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_RETRIEVE</base>
+        <trans>Ce doriți să se înâmple cu E-Mailurile de pe serverele externe ?</trans>
+    </entry>
+    <entry>
+        <base>KEEP_NO</base>
+        <trans>Importă toate mailurile</trans>
+    </entry>
+    <entry>
+        <base>KEEP_YES</base>
+        <trans>Citeste mailurile și lasă-le pe servere</trans>
+    </entry>
+    <entry>
+        <base>KEEP_NEW</base>
+        <trans>Importă numai mailurile noi</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_FORWARD</base>
+        <trans>Vreți sa retransmiteți aceste mailuri?</trans>
+    </entry>
+    <entry>
+        <base>FORWARD_GET</base>
+        <trans>Importă doar pentru contul acesta</trans>
+    </entry>
+    <entry>
+        <base>FORWARD_COPY</base>
+        <trans>Importă pentru acest cont și retransmite la un alt cont de mail</trans>
+    </entry>
+    <entry>
+        <base>FORWARD_FORWARD</base>
+        <trans>Retransmite toate mailurile la un alt cont de mail</trans>
+    </entry>
+    <entry>
+        <base>LABEL_FORWARD_MAIL</base>
+        <trans>Adresa(e) de mail unde să retransmită ( format xxx@yyy.zz ) Pentru a seta mai multe adrese externe separați-le cu punct și virgulă (;) </trans>
+    </entry>
+    <entry>
+        <base>SET_ACCOUNTS_TITLE</base>
+        <trans>Setați informațiile de acces ale mailului extern</trans>
+    </entry>
+    <entry>
+        <base>SET_ACCOUNTS_PAGE_DESCRIPTION</base>
+        <trans><![CDATA[ <p> Aici puteți seta informațiile necesare de acces a contului de mail extern :Numele serverului, tipul servedrului, numele contului, parola contului. </p> ]]></trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_SERVER</base>
+        <trans>Numele sau IP-ul serverului extern</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_TYPE</base>
+        <trans>Protocolul utilizat pentru citirea mailurilor</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_ACCOUNT</base>
+        <trans>Numele contului utilizatorului pe serverul de mail</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_PASSWORD</base>
+        <trans>Parola utilizatorului pe serverul de mail</trans>
+    </entry>
+    <entry>
+        <base>POP3</base>
+        <trans>POP</trans>
+    </entry>
+    <entry>
+        <base>IMAP</base>
+        <trans>IMAP</trans>
+    </entry>
+    <entry>
+        <base>SPOP3</base>
+        <trans>SSL POP (Experimental)</trans>
+    </entry>
+    <entry>
+        <base>SIMAP</base>
+        <trans>SSL IMAP (Experimental)</trans>
+    </entry>
+    <entry>
+        <base>SHOW_FETCHMAIL_ACCOUNTS</base>
+        <trans><![CDATA[ <p> Aceasta este lista casuțelor de mail deja configurate pentru acest utilizator. </p> ]]></trans>
+    </entry>
+    <entry>
+        <base>ERR_BADSERVER</base>
+        <trans><![CDATA[ Aceasta nu apre a fi un nume sau adresa de IP valide.<br> Pentru a fi valid, acest câmp trebuie să conțină fie un nume de server valid fie o adresa IP corectă.<br> Un nume de server conține într două și cinci părți alfanumerice separate prin puncte '.'<br> Pentru toate parțile mai puțin ultima, caracterele permise sunt litere, sumere și '-'. Părțile pot fi de orice dimensiune.<br> Pentru ultima parte (denumită tld), sunt eprmise numai litere, iar partea cuprinde între două și șapte caractere.<br> O adresă IPvalidă este constituită din patru numere intregi fiecare între 0 și 255. cele patru numere sunt unite la un loc, separate de un punct. ]]></trans>
+    </entry>
+    <entry>
+        <base>ERR_BADCHARS</base>
+        <trans><![CDATA[ Oops ! Ați introdus caractere speciale ce nu sunt permise. în aceste câmpuri  puteți utiliza orice caracter EXCEPȚIE bară '|' și cele două caractere speciale, 0x1E and 0x1F. ]]></trans>
+    </entry>
+    <entry>
+        <base>ERR_FIELD_EMPTY</base>
+        <trans><![CDATA[ Nu puteți lăsa nici unul din câmpurile  'nume server', 'nume utilizator' sau 'user parola' gol. ]]></trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_VALIDATE_ACCOUNT</base>
+        <trans>Validați cont</trans>
+    </entry>
+    <entry>
+        <base>MAIL_SERVER</base>
+        <trans>Server Mail</trans>
+    </entry>
+    <entry>
+        <base>MAIL_TYPE</base>
+        <trans>Tip de acces mail</trans>
+    </entry>
+    <entry>
+        <base>MAIL_ACCOUNT</base>
+        <trans>Cont de mail pe server</trans>
+    </entry>
+    <entry>
+        <base>MAIL_PASSWORD</base>
+        <trans>Parolă căsuță poștală</trans>
+    </entry>
+    <entry>
+        <base>fetchmail</base>
+        <trans>Inport mailuri</trans>
+    </entry>
+    <entry>
+        <base>BLANK</base>
+        <trans><![CDATA[ ]]></trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_CHANGED_CONF</base>
+        <trans>Modificările efectuate asupra Importului de mailuri au fost salvate cu succes.</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_CHANGING_CONF</base>
+        <trans>Imposibil de aplicat modificările pentru importuld e mailuri</trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_MODIFIED_ROUTING</base>
+        <trans>Modificările accesului la serverele POP3 și IMAP4 din rețeaua internă a fost salvate cu succes.</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_MODIFYING_ROUTING</base>
+        <trans>Imposibil de aplicat modificările configurației de acces POP3 și IMAP4.</trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_MODIFIED_ROUTINGSMTP</base>
+        <trans>Modificările accesului la serverul exterior SMTP din rețeaua internă s-au salvat cu succes.</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_MODIFYING_ROUTINGSMTP</base>
+        <trans>Imposibil de aplicat modificările confugurărilor de acces SMTP</trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_MODIFIED_ROUTINGNNTP</base>
+        <trans>Modificările accesului la serverul exterior de stiri din rețeaua internă s-au salvat cu succes.</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_MODIFYING_ROUTINGNNTP</base>
+        <trans>Imposibil de aplicat modificările confugurărilor de acces NNTP</trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_MODIFIED_SMTPPROXY</base>
+        <trans>Modificările Proxy-ului SME SMTP s-au salvat cu succes.</trans>
+    </entry>
+    <entry>
+        <base>PREVIOUS</base>
+        <trans>Anterior</trans>
+    </entry>
+    <entry>
+        <base>VALIDATE</base>
+        <trans>Validați modificări!</trans>
+    </entry>
+    <entry>
+        <base>ERR_NO_FETCHMAIL_RECORD</base>
+        <trans>Nu pot prelua setări de import mailuri din baza de date de configurări.</trans>
+    </entry>
+    <entry>
+        <base>ERR_NO_SMTPFRONT-QMAIL_RECORD</base>
+        <trans>Nu pot prelua inregistrările smtpfront-qmail din baza de configurări.</trans>
+    </entry>
+    <entry>
+        <base>ERR_BADMAIL</base>
+        <trans><![CDATA[ Adresa E-Mail furnizată pare a nu fi validă.<br> O adresă E-Mail validă conține doar literenumere si sublinieri în zona de nume . Pot exista deasemenea  '-' și '.' în nume, dar nu la început sau sfârșit. Partea de domeniu (în dreapta semnului @ ) trebuie să conțină litere, numere, și cratimă '-' . Numele de domeniu conține de obicei între 1 și 4 puncte (.) . Ultimul cuvânt (tld-ul) poate conține doar litere și are intre 2 si 7 caractere.<br> Puteți seta mai mult de o adresă externa. În acest caz, separați-le cu punct și virgulă ':' ]]></trans>
+    </entry>
+    <entry>
+        <base>STATUS_1</base>
+        <trans>ACTIV</trans>
+    </entry>
+    <entry>
+        <base>STATUS_0</base>
+        <trans>DEZACTIVAT</trans>
+    </entry>
+	<entry>
+	    <base>NB_EXT_BOX</base>
+	    <trans>Adresa mail externă</trans>
+	</entry>
+	<entry>
+	    <base>GHOST_ACCOUNT</base>
+	    <trans>Cont fantomă</trans>
+	</entry>
+	<entry>
+	    <base>DEBUG_MAILBOX</base>
+	    <trans>Căsuță mail in mod 'debug'</trans>
+	</entry>
+	<entry>
+	    <base>SPIED_MAILBOX</base>
+	    <trans>Căsuță mail sub supraveghere</trans>
+	</entry>
+    <entry>
+        <base>SHOW_SCHEDULE_INFOS</base>
+        <trans><![CDATA[ <center><h4>Informații ale programarilor</h4></center> Importul de E-mailuri se face la intervale regulate. Regulile de programare sunt aceleași ca și regulile setate în panoul 'E-mails'.<br> Dacă doriți schimbarea programărilor, schimbați-le în panoul E-Mail.<br> <b>NOTĂ!</b> : Dacă nu folosiți ETRN sau Multi-Drop, nu puteți schimba programarea !<br> Ca să evitați acest neajuns, procedați astfel :<br> - Selectați ETRN și setați noua programare apoi 'Salvați'.<br> - Apoi setați 'Standard (SMTP)' și 'Salvați' din nou. ]]></trans>
+    </entry>
+</lexicon>

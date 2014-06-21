@@ -1,0 +1,24 @@
+{
+    # vim: ft=perl ts=4 sw=4 et:
+    if ( ( $FetchMails{ status } || "disabled" ) eq "enabled" ) {
+        $OUT  = "\n# fetchmail groups entries start\n" ;
+	    $OUT .= "# If smeserver-fetchmail creates mailgroup for incoming fetched mails\n" ;
+	    $OUT .= "# we need to accept these groups from outside.\n" ;
+
+        my $fetchgroup = 0 ;
+	    my $dom = $DomainName ;
+        	
+    	opendir ( DIR, "/var/qmail/alias" ) ;
+	    foreach my $fic ( grep( /^\.qmail-fm_fm-/, readdir DIR) ) {
+            $fic =~ s/^\.qmail-//;
+            $fic =~ s/:/./g;
+            $OUT .= "$fic\@$dom\n";
+            $fetchgroup = 1;
+        }
+        closedir (DIR);
+
+        $OUT .= "### No smeserver-fetchmail groups set Now ...\n" if ( ! $fetchgroup ) ;
+        $OUT .= "# fetchmail groups entries end\n" ;
+    }
+}
+

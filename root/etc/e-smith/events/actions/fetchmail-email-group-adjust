@@ -1,0 +1,79 @@
+#!/usr/bin/perl -w
+# vim: ft=perl ts=4 sw=4 et:
+
+use strict ;
+use esmith::util;
+use esmith::ConfigDB ;
+use esmith::AccountsDB ;
+
+my $db = esmith::ConfigDB->open_ro
+    or die "Can't open the Config database : $!\n" ;
+my $accountdb = esmith::AccountsDB->open_ro
+    or die "Can't open the Account database : $!\n" ;
+
+my @users ;
+my $fetchmail = $db->get('FetchMails') ;
+my $FMStatus = 'disabled' ;
+if ( defined $fetchmail ) {
+    $FMStatus = $fetchmail->prop('status') || 'disabled' ;
+}
+# print "$FMStatus\n" ;
+# as of version 1.3.4-04, the offending fm% prefix becomes fm_fm-
+# PS Apr 30, 2005
+# no need to have any .qmail-fm% or .qmail-fm_fm- files
+# it's better to suppress all aliases files, in case of
+# a user deletion. 
+# The whole file are recreated after anyway.
+opendir ( DIR, "/var/qmail/alias" ) ;
+foreach my $fic ( grep( /^.qmail-(fm%|fm_fm-)/, readdir DIR) ) {
+    unlink "/var/qmail/alias/$fic" ;
+}
+closedir ( DIR ) ;
+
+if ( $FMStatus eq 'enabled' ) {
+    my @users = $accountdb->get('admin');
+    push @users, $accountdb->users();
+    foreach my $u ( @users ) {
+        # print $u->key ;
+        my $MailCopyTo = '' ;
+        $MailCopyTo = $u->prop( 'FM-MailCopyTo' ) if ( defined $u->prop( 'FM-MailCopyTo' ) ) ;
+        my $TransName = '' ;
+        if ( defined $u->prop( 'FM-TransName' ) ) {
+            $TransName  = $u->prop( 'FM-TransName'  ) ;
+        }
+        if ( $TransName ne '' ) {
+            $TransName =~ s/\s//g ;
+            $TransName =~ s/:/,/g ;
+            if ( $MailCopyTo eq '' ) { $MailCopyTo = $TransName }
+            else                     { $MailCopyTo = $MailCopyTo . "," . $TransName }
+        } 
+        # print "$MailCopyTo\n" ;
+        if ( $MailCopyTo ne '' ) {
+            # add the local account only if the account is not a Ghost account
+            if ( ( $u->prop( 'FM-Ghost' ) || 'NO' ) ne 'YES' ) {
+                $MailCopyTo = $u->key . "," . $MailCopyTo ;
+            }
+            my $Group = "fm_fm-" . $u->key ;
+            # PS Oct 25, 2006 : in SME 7, names can contain dot. But Qmail doesn't like dots
+            # in group filename.
+            # borrowed in /etc/e-smith/events/actions/qmail-update-group :
+            # $groupName =~ s/\./:/g;
+            $Group =~ s/\./:/g;
+
+            esmith::util::processTemplate(
+                {
+                    CONFREF =>
+                        {
+                            Members => $MailCopyTo,
+                        },
+    
+                    TEMPLATE_PATH =>
+                        "/var/qmail/alias/.qmail-group",
+    
+                    OUTPUT_FILENAME => "/var/qmail/alias/.qmail-$Group",
+                }
+            );
+        }
+    }
+}
+

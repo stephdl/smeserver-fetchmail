@@ -1,0 +1,334 @@
+<lexicon lang="sv">
+    <entry>
+        <base>FORM_TITLE</base>
+        <trans>Konfigurera hämtning från extern e-postlåda</trans>
+    </entry>
+    <entry>
+        <base>FIRST_PAGE_DESCRIPTION</base>
+	    <trans><![CDATA[ <p> This panel allows configuration of external mailbox retrieval by your SME Server. What does this mean?<br> Some of your users may have external mailbox(es). Usually, the email clients on individual workstations have to be configured to fetch mail from these external mailboxes as well as from the normal mailboxes provided by the SME server. Using this control panel, the SME server can be configured to fetch mail from external mailboxes and then automatically forward these mails to internal mail boxes. This makes configuration of the email clients on individual workstations very easy.<br> Using this method of mail retrieval (and provided that the individual workstations are using IMAP) means that emails are backed up as part of the normal backup process.<br> Other functions available through this panel are:<br> - A mailbox can be distributed to many mailboxes<br> - You can create 'Ghost account' : Mails sent to this account are distributed to other(s) mailbox(es) only.<br> - logging of events for a mailboxes.<br> ]]></trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_SERVICE_0</base>
+        <trans>Aktivera Fetchmail</trans>
+    </entry>
+    <entry>
+        <base>SERVICE_0</base>
+        <trans>Fetchmail är avaktiverad</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_SERVICE_1</base>
+        <trans>Avaktivera Fetchmail</trans>
+    </entry>
+    <entry>
+        <base>SERVICE_1</base>
+        <trans>Fetchmail är aktiverad</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTING_0</base>
+        <trans>Aktivera åtkomst till extern POP och IMAP-server</trans>
+    </entry>
+    <entry>
+        <base>ROUTING_0</base>
+        <trans>Arbetsstationer på det interna nätverket kan inte komma åt externa POP och IMAP-servrar</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTING_1</base>
+        <trans>Avaktivera åtkomst till extern POP och IMAP-server</trans>
+    </entry>
+    <entry>
+        <base>ROUTING_1</base>
+        <trans>Arbetsstationer på det interna nätverket kan komma åt externa POP och IMAP-servrar</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGSMTP_0</base>
+        <trans>Aktivera åtkomst till extern SMTP-server</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGSMTP_0</base>
+        <trans>Arbetsstationer på det interna nätverket kan komma åt externa SMTP-servrar</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGSMTP_1</base>
+        <trans>Avaktivera åtkomst till extern SMTP-server</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGSMTP_1</base>
+        <trans>Arbetsstationer på det interna nätverket kan komma åt externa SMTP-servrar</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGSMTPPROXY_0</base>
+        <trans>Tvinga SMTP-anslutningar genom SME:s Proxy</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGSMTPPROXY_0</base>
+        <trans>Arbetsstationer på det interna nätverket har direktaccess till externa SMTP-servrar</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGSMTPPROXY_1</base>
+        <trans>Tillåt direkta SMTP-anslutningar</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGSMTPPROXY_1</base>
+        <trans>SMTP-anslutningar från internt nätverk till Internet går genom proxy på SME-servern</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGNNTP_0</base>
+        <trans>Tillåt åtkomst till extern nyhetsserver</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGNNTP_0</base>
+        <trans>Arbetsstationer på det interna nätverket har inte åtkomst till externa nyhetsservrar</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGNNTP_1</base>
+        <trans>Avaktivera åtkomst till extern nyhetsserver</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGNNTP_1</base>
+        <trans>Arbetsstationer på det interna nätveret har åtkomst till externa nyhetsservrar</trans>
+    </entry>
+    <entry>
+        <base>SHOW_FETCHMAIL_USERS</base>
+        <trans><![CDATA[ Below is a table summarizing the current users defined on this system with a summary of the fetchmail configuration for each user.<br> Here you can create, modify, and remove fetchmail rules for any user. ]]></trans>
+    </entry>
+    <entry>
+        <base>NO_USER_ACCOUNTS</base>
+        <trans>Det finns för närvarande inga användare definierade på detta system.</trans>
+    </entry>
+    <entry>
+        <base>SET_GENERAL_TITLE</base>
+        <trans>Ange generella regler för hämtning av mail</trans>
+    </entry>
+    <entry>
+        <base>SET_GENERAL_PAGE_DESCRIPTION</base>
+        <trans><![CDATA[ <p> Select the general information for the fetchmail accounts.<br> The specific mailboxes to retrieve will be set on the next screens. </p> ]]></trans>
+    </entry>
+    <entry>
+        <base>ERROR_NO_FINAL_RECIPIENT</base>
+        <trans><![CDATA[ Oups ! There is no final recipient for this rule.<br> Mails can be delivered to the local account. This mode is selected if you choose 'NO' for the 'Ghost Mode'.<br> Mails can be delivered to other local accounts. This mode is selected by checking one or more cases in the chart below.<br> Mails can be delivered to an external Mailbox. This mode is selected if an E-Mail is set in the 'Email address to forward mail' field.<br> You must set at least one kind of recipient. ]]></trans>
+    </entry>
+    <entry>
+        <base>LABEL_USER_ACCOUNT</base>
+        <trans>Användarkonto</trans>
+    </entry>
+    <entry>
+        <base>LABEL_COPY_TO</base>
+        <trans>Skicka kopia till</trans>
+    </entry>
+    <entry>
+        <base>LABEL_GHOST</base>
+        <trans>Är det ett 'spök'-konto (som endast används för att vidarebefordra e-post) ?</trans>
+    </entry>
+    <entry>
+        <base>LABEL_DEBUG</base>
+        <trans>Vill du felsöka detta konto (fetchmailhändelser loggas i /var/log/maillog) ?</trans>
+    </entry>
+    <entry>
+        <base>LABEL_SPY</base>
+        <trans>Vill du att detta konto skall övervakas av 'admin'-kontot ?</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_RETRIEVE</base>
+        <trans>Vad vill du göra med e-postmeddelanden på externa servrar ?</trans>
+    </entry>
+    <entry>
+        <base>KEEP_NO</base>
+        <trans>Hämta alla e-postmeddelanden</trans>
+    </entry>
+    <entry>
+        <base>KEEP_YES</base>
+        <trans>Läs e-postmeddelanden och lämna kvar dem på servrarna</trans>
+    </entry>
+    <entry>
+        <base>KEEP_NEW</base>
+        <trans>Hämta endast nya e-postmeddelanden</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_FORWARD</base>
+        <trans>Vill du vidarebefordra dessa e-postmeddelanden ?</trans>
+    </entry>
+    <entry>
+        <base>FORWARD_GET</base>
+        <trans>Hämta endast för detta kontot</trans>
+    </entry>
+    <entry>
+        <base>FORWARD_COPY</base>
+        <trans>Hämta för detta konto och vidarebefordra till annan e-postlåda</trans>
+    </entry>
+    <entry>
+        <base>FORWARD_FORWARD</base>
+        <trans>Vidarebefordra endast alla e-postmeddelanden till annan e-postlåda</trans>
+    </entry>
+    <entry>
+        <base>LABEL_FORWARD_MAIL</base>
+        <trans>E-postadress(er) som skall vidarebefordras till (format : xxx@yyy.zz ). För att ange mer än en extern adress, separera dem med ett kolon ':'</trans>
+    </entry>
+    <entry>
+        <base>SET_ACCOUNTS_TITLE</base>
+        <trans>Ange åtkomstinformation till det externa e-postkontot</trans>
+    </entry>
+    <entry>
+        <base>SET_ACCOUNTS_PAGE_DESCRIPTION</base>
+        <trans><![CDATA[ <p> Here you can set the information needed to access your external mailboxes : Name of the server storing the mailbox, type of mailbox server, account name, account password. </p> ]]></trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_SERVER</base>
+        <trans>Namn eller IP-adress på den externa e-postservern</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_TYPE</base>
+        <trans>Protokoll som skall användas vid läsning av e-postmeddelanden</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_ACCOUNT</base>
+        <trans>Användarkontot på mailservern</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_PASSWORD</base>
+        <trans>Lösenordet för kontot på mailservern</trans>
+    </entry>
+    <entry>
+        <base>POP3</base>
+        <trans>POP</trans>
+    </entry>
+    <entry>
+        <base>IMAP</base>
+        <trans>Imap</trans>
+    </entry>
+    <entry>
+        <base>SPOP3</base>
+        <trans>SSL POP (Experimentel)</trans>
+    </entry>
+    <entry>
+        <base>SIMAP</base>
+        <trans>SSL Imap (Experimentel)</trans>
+    </entry>
+    <entry>
+        <base>SHOW_FETCHMAIL_ACCOUNTS</base>
+        <trans><![CDATA[ <p> This is the list of external mailboxes already configured for this user. </p> ]]></trans>
+    </entry>
+    <entry>
+        <base>ERR_BADSERVER</base>
+        <trans><![CDATA[ This doesn't seems to be a valid server namei or IP address.<br> To be valid, this field must contain either a valid server name or a valid IP address.<br> A valid server name contains between two and 5 parts separated by dots '.'<br> For all parts but the last, characters allowed are letters, numbers and '-'. The parts can be of any size.<br> For the last part (also named tld), only letters are allowed, and the part must contain between two and seven characters.<br> A valid IP address is made with four decimal integers, each between 0 and 255. The four numbers are put together, separated by one dot. ]]></trans>
+    </entry>
+    <entry>
+        <base>ERR_BADCHARS</base>
+        <trans><![CDATA[ Oops ! I'm affraid you just entered one of the special characters we cannot allow. In theses fields, you can use any characters EXCEPT pipe '|' and the two very special characters, 0x1E and 0x1F. ]]></trans>
+    </entry>
+    <entry>
+        <base>ERR_FIELD_EMPTY</base>
+        <trans><![CDATA[ You cannot leave any of the three fields 'server name', 'user name' or 'user passord' empty. ]]></trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_VALIDATE_ACCOUNT</base>
+        <trans>Validera konto</trans>
+    </entry>
+    <entry>
+        <base>MAIL_SERVER</base>
+        <trans>Mailserver</trans>
+    </entry>
+    <entry>
+        <base>MAIL_TYPE</base>
+        <trans>Åtkomsttyp för e-post</trans>
+    </entry>
+    <entry>
+        <base>MAIL_ACCOUNT</base>
+        <trans>Mailkonto på servern</trans>
+    </entry>
+    <entry>
+        <base>MAIL_PASSWORD</base>
+        <trans>Mailkontots lösenord på servern</trans>
+    </entry>
+    <entry>
+        <base>fetchmail</base>
+        <trans>Hämtning av mail</trans>
+    </entry>
+    <entry>
+        <base>BLANK</base>
+        <trans><![CDATA[&nbsp;]]></trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_CHANGED_CONF</base>
+        <trans>Dina ändringar av Fetchmails konfiguration har genomförts.</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_CHANGING_CONF</base>
+        <trans>Kunde inte genomföra ändringarna av Fetchmails konfiguration.</trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_MODIFIED_ROUTING</base>
+        <trans>Din ändring av åtkomst av externa POP3 och IMAP-servrar från det lokla nätverket har genomförts.</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_MODIFYING_ROUTING</base>
+        <trans>Kunde inte genomföra ändringarna av konfigurationen för IMAP och POP3 åtkomst.</trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_MODIFIED_ROUTINGSMTP</base>
+        <trans>Din ändring av åtkomst till externa SMTP-servrar från det interna nätverket har genomförts.</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_MODIFYING_ROUTINGSMTP</base>
+        <trans>Kunde inte genomföra ändringar av konfigurationen för SMTP åtkomst.</trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_MODIFIED_ROUTINGNNTP</base>
+        <trans>Dina ändringar för åtkomst till externa nyhetsservrar från det lokla nätverket har genomförts.</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_MODIFYING_ROUTINGNNTP</base>
+        <trans>Kunde inte genomföra ändringar av konfigurationen för NNTP åtkomst.</trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_MODIFIED_SMTPPROXY</base>
+        <trans>Dina ändringar av konfigurationen för SME SMTP proxyn har genomförts.</trans>
+    </entry>
+    <entry>
+        <base>PREVIOUS</base>
+        <trans>Föregående</trans>
+    </entry>
+    <entry>
+        <base>VALIDATE</base>
+        <trans>Validera ändringar !</trans>
+    </entry>
+    <entry>
+        <base>ERR_NO_FETCHMAIL_RECORD</base>
+        <trans>Kan inte hämta Fetchmaildata från konfigurationsdatabasen.</trans>
+    </entry>
+    <entry>
+        <base>ERR_NO_SMTPFRONT-QMAIL_RECORD</base>
+        <trans>Kan inte hämta smtpfront-qmaildata från konfigurationsdatabasen.</trans>
+    </entry>
+    <entry>
+        <base>ERR_BADMAIL</base>
+        <trans><![CDATA[ The E-Mail address you gave doesn't seems to be valid.<br> A valid E-Mail contains only letters, digits and undescores in the name part. There can also be '-' and '.' in the name, but not at begining or end. The domain part (to the right of the @ sign) should only contain upper- and lowercase letters, numbers and the '-' character. The domain name normally contains between 1 and 4 dot (.) characters. The last word (the tld) can only contains letters and it should have a least 2 characters, but not more than 7.<br> You can set more than one external mailbox. In this case, just separate each e-mail address with a colon ':' ]]></trans>
+    </entry>
+    <entry>
+        <base>STATUS_1</base>
+        <trans>AKTIVERAD</trans>
+    </entry>
+    <entry>
+        <base>STATUS_0</base>
+        <trans>AVAKTIVERAD</trans>
+    </entry>
+	<entry>
+	    <base>NB_EXT_BOX</base>
+	    <trans>Extern e-postlåda</trans>
+	</entry>
+	<entry>
+	    <base>GHOST_ACCOUNT</base>
+	    <trans>Spökkonto</trans>
+	</entry>
+	<entry>
+	    <base>DEBUG_MAILBOX</base>
+	    <trans>E-postlådan i felsökningsmod</trans>
+	</entry>
+	<entry>
+	    <base>SPIED_MAILBOX</base>
+	    <trans>E-postlådan under övervakning</trans>
+	</entry>
+    <entry>
+        <base>SHOW_SCHEDULE_INFOS</base>
+        <trans><![CDATA[ <center><h4>Scheduling information</h4></center> E-mail retrieval is done at regular intervals. The scheduling rules are the same as the rules set in the 'E-Mails' panel.<br> If you want to change the schedule, simply change them in the E-Mail panel.<br> <b>NOTE!</b> : If you don't use ETRN or Multi-Drop, you cannot change the schedule !<br> To work around this limitation, do the following :<br> - Select ETRN and select your new schedule then 'Save'.<br> - Then select 'Standard (SMTP)' and 'Save' again. ]]></trans>
+    </entry>
+</lexicon>

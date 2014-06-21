@@ -1,0 +1,77 @@
+{
+    # vim: ft=perl ts=4 sw=4 et:
+    use esmith::ConfigDB ;
+    use esmith::AccountsDB ;
+
+    $OUT = '';
+
+    # Generate qmail user assignments for groups. These will be handled
+    # by ~alias/.qmail-groupname and ~alias/.qmail-groupname-ext.
+
+    my $db = esmith::ConfigDB->open_ro
+        or die "Can't open the Config database : $!\n" ;
+    my $accountdb = esmith::AccountsDB->open_ro
+        or die "Can't open the Account database : $!\n" ;
+
+    my (undef, undef, $uid, $gid, undef, undef, undef, $dir, undef)
+	= getpwnam("alias");
+
+    # It is almost impossible to get Text::Template to output nothing
+    # on failure. It can be done by removing the newline at the end of
+    # this file but that is messy. Therefore, we'll simply return an
+    # error message that will make qmail-newu fail. Also send a
+    # warning message that will be captured in the logs.
+
+    unless (defined $uid && defined $gid && defined $dir)
+    {
+	my $msg =
+	    "Failed to obtain user details for \'alias\' "
+	    . "while processing group assignments.";
+
+	warn "$msg\n";
+	$OUT = $msg;
+	return;
+    }
+
+    my $alias_assign = "alias:${uid}:${gid}:${dir}";
+
+    my @users ;
+    my $fetchmail = $db->get('FetchMails') ;
+    my $FMStatus = 'disabled' ;
+    if ( defined $fetchmail ) {
+        $FMStatus = $fetchmail->prop('status') || 'disabled' ;
+    }
+
+    if ( $FMStatus eq 'enabled' ) {
+        my @users = $accountdb->get('admin');
+        push @users, $accountdb->users();
+        foreach my $u ( @users ) {
+            # print $u->key ;
+            my $MailCopyTo = '' ;
+            $MailCopyTo = $u->prop( 'FM-MailCopyTo' ) if ( defined $u->prop( 'FM-MailCopyTo' ) ) ;
+            my $TransName = '' ;
+            $TransName  = $u->prop( 'FM-TransName'  ) if ( defined $u->prop( 'FM-TransName'  ) ) ;
+            # print "$MailCopyTo\n" ;
+            if ( $MailCopyTo ne '' || $TransName ne '' ) {
+                my $FMGroup = "fm_fm-" . $u->key ; 
+
+            	# Assign mail for group@
+	            $OUT .= "=${FMGroup}:${alias_assign}:-:${FMGroup}:\n";
+    
+            	# Assign mail for group-ext@
+            	$OUT .= "+${FMGroup}-:${alias_assign}:-${FMGroup}-::\n";
+            }
+        }
+    }
+
+    # Need to remove the final newline character. Blank lines in
+    # /var/qmail/users/assign are prohibited.
+
+    chomp($OUT);
+
+    # Failsafe: /var/qmail/users/assign cannot have blank lines.
+    # Therefore, if $OUT is empty, simply set up an assign for the
+    # alias user.
+
+    $OUT = "=alias:${alias_assign}:::" unless $OUT;
+}

@@ -1,0 +1,137 @@
+
+{
+    use esmith::config;
+    use esmith::db;
+
+    $OUT = '';
+
+    local %services;
+    $services{'fetchmail'} = $fetchmail;
+
+    if ( ( $FetchMails{ status } || "disabled" ) eq "enabled" ) {
+	
+	    if ( ( $fetchmail{ status } || "disabled" ) eq "enabled" &&
+		 ( $fetchmail{ Method } || "standard" ) ne "standard" ) {
+	} else {
+	    $OUT .= "\n";
+	    $OUT .= "# fetchmail times during office hours\n";
+	    $OUT .= "\n";
+
+	    my $FetchmailFreqOffice =
+		db_get_prop(\%services, "fetchmail", 'FreqOffice');
+	    if ($FetchmailFreqOffice)
+	    {
+		if ($FetchmailFreqOffice eq 'every5min')
+		{
+		    $OUT .= "*/5\t8-17\t*\t*\t1-5\troot\t/etc/startmail\n";
+		}
+		elsif ($FetchmailFreqOffice eq 'every15min')
+		{
+		    $OUT .= "*/15\t8-17\t*\t*\t1-5\troot\t/etc/startmail\n";
+		}
+		elsif ($FetchmailFreqOffice eq 'every30min')
+		{
+		    $OUT .= "*/30\t8-17\t*\t*\t1-5\troot\t/etc/startmail\n";
+		}
+		elsif ($FetchmailFreqOffice eq 'everyhour')
+		{
+		    $OUT .= "0\t8-17\t*\t*\t1-5\troot\t/etc/startmail\n";
+		}
+		elsif ($FetchmailFreqOffice eq 'every2hrs')
+		{
+		    $OUT .= "0\t8-17/2\t*\t*\t1-5\troot\t/etc/startmail\n";
+		}
+		else
+		{
+		    $OUT .= "# FetchmailFreqOffice - never\n";
+		}
+	    }
+	    else
+	    {
+		$OUT .= "# FetchmailFreqOffice - not defined\n";
+	    }
+
+	    $OUT .= "\n";
+	    $OUT .= "# fetchmail times outside office hours\n";
+	    $OUT .= "\n";
+
+	    my $FetchmailFreqOutside =
+		db_get_prop(\%services, "fetchmail", 'FreqOutside');
+	    if ($FetchmailFreqOutside)
+	    {
+		if ($FetchmailFreqOutside eq 'every5min')
+		{
+		    $OUT .= "*/5\t0-7\t*\t*\t1-5\troot\t/etc/startmail\n";
+		    $OUT .= "*/5\t18-23\t*\t*\t1-5\troot\t/etc/startmail\n";
+		}
+		elsif ($FetchmailFreqOutside eq 'every15min')
+		{
+		    $OUT .= "*/15\t0-7\t*\t*\t1-5\troot\t/etc/startmail\n";
+		    $OUT .= "*/15\t18-23\t*\t*\t1-5\troot\t/etc/startmail\n";
+		}
+		elsif ($FetchmailFreqOutside eq 'every30min')
+		{
+		    $OUT .= "*/30\t0-7\t*\t*\t1-5\troot\t/etc/startmail\n";
+		    $OUT .= "*/30\t18-23\t*\t*\t1-5\troot\t/etc/startmail\n";
+		}
+		elsif ($FetchmailFreqOutside eq 'everyhour')
+		{
+		    $OUT .= "0\t0-7\t*\t*\t1-5\troot\t/etc/startmail\n";
+		    $OUT .= "0\t18-23\t*\t*\t1-5\troot\t/etc/startmail\n";
+		}
+		elsif ($FetchmailFreqOutside eq 'every2hrs')
+		{
+		    $OUT .= "0\t0-7/2\t*\t*\t1-5\troot\t/etc/startmail\n";
+		    $OUT .= "0\t18-23/2\t*\t*\t1-5\troot\t/etc/startmail\n";
+		}
+		else
+		{
+		    $OUT .= "# FetchmailFreqOutside - never\n";
+		}
+	    }
+	    else
+	    {
+		$OUT .= "# FetchmailFreqOutside - not defined\n";
+	    }
+
+	    $OUT .= "\n";
+	    $OUT .= "# fetchmail times during the weekend\n";
+	    $OUT .= "\n";
+
+	    my $FetchmailFreqWeekend =
+		db_get_prop(\%services, "fetchmail", 'FreqWeekend');
+	    if ($FetchmailFreqWeekend)
+	    {
+		if ($FetchmailFreqWeekend eq 'every5min')
+		{
+		    $OUT .= "*/5\t*\t*\t*\t6-7\troot\t/etc/startmail\n";
+		}
+		elsif ($FetchmailFreqWeekend eq 'every15min')
+		{
+		    $OUT .= "*/15\t*\t*\t*\t6-7\troot\t/etc/startmail\n";
+		}
+		elsif ($FetchmailFreqWeekend eq 'every30min')
+		{
+		    $OUT .= "*/30\t*\t*\t*\t6-7\troot\t/etc/startmail\n";
+		}
+		elsif ($FetchmailFreqWeekend eq 'everyhour')
+		{
+		    $OUT .= "0\t*\t*\t*\t6-7\troot\t/etc/startmail\n";
+		}
+		elsif ($FetchmailFreqWeekend eq 'every2hrs')
+		{
+		    $OUT .= "0\t*/2\t*\t*\t6-7\troot\t/etc/startmail\n";
+		}
+		else
+		{
+		    $OUT .= "# FetchmailFreqWeekend - never\n";
+		}
+	    }
+	    else
+	    {
+		$OUT .= "# FetchmailFreqWeekend - not defined\n";
+	    }
+	}
+    }
+}
+

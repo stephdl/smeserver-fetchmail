@@ -1,0 +1,37 @@
+#!/usr/bin/perl -w
+
+use esmith::Build::CreateLinks qw(:all);
+
+#--------------------------------------------------
+# functions for manager panel
+#--------------------------------------------------
+my $panel = "manager";
+panel_link("fetchmail", $panel);
+
+#--------------------------------------------------
+# actions for console-save event:
+#--------------------------------------------------
+
+event_link("user-update-fetchmail", "user-create", "25");
+event_link("user-update-fetchmail", "user-modify" ,"25");
+event_link("user-update-fetchmail", "user-delete", "90");
+event_link("fetchmail-email-group-adjust", "user-delete", "25");
+
+#--------------------------------------------------
+# an event launched if case of routing modification
+#--------------------------------------------------
+
+event_link("conf-masq",    "fetchmail-routing", "20");
+event_link("restart-masq", "fetchmail-routing", "50");
+
+#--------------------------------------------------
+# an event launched if case of fetchmail conf change
+#--------------------------------------------------
+
+event_link("conf-fetchmail-params-files", "fetchmail-change", "20");
+event_link("fetchmail-email-group-adjust", "fetchmail-change", "30");
+event_link("email-assign", "fetchmail-change", "40");
+event_link("conf-fetchmail-group-files", "fetchmail-change", "50");
+safe_symlink("adjust",
+    "root/etc/e-smith/events/fetchmail-change/services2adjust/masq");
+

@@ -1,0 +1,217 @@
+#!/usr/bin/perl -wT
+# vim: ft=xml ts=4 sw=4 et:
+#----------------------------------------------------------------------
+# heading     : Collaboration
+# description : fetchmail
+# navigation  : 3000 3205
+#----------------------------------------------------------------------
+#----------------------------------------------------------------------
+# copyright (C) 2004 Schirrm's Studio
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307  USA
+#----------------------------------------------------------------------
+
+use strict;
+use esmith::FormMagick::Panel::fetchmail;
+my $form = esmith::FormMagick::Panel::fetchmail->new();
+# Uncomment the next line for debugging purposes.
+# $form->debug(1);
+$form->display();
+
+
+__DATA__
+<form 
+    title="FORM_TITLE" 
+    header="/etc/e-smith/web/common/head.tmpl"
+    footer="/etc/e-smith/web/common/foot.tmpl">
+
+    <!-- page 0 -->
+    <page 
+        name="First"
+        pre-event="print_status_message()">
+        <description>FIRST_PAGE_DESCRIPTION</description>
+
+        <subroutine src="show_schedule_infos()" />
+        <subroutine src="show_fetchmail_status()" />
+        <subroutine src="show_fetchmail_users()" />
+    </page>
+
+    <!-- page 1 -->
+    <page
+        name="SetGeneral"
+        pre-event="print_status_message()"
+        post-event="temp_store_general()">
+        <title>SET_GENERAL_TITLE</title>
+        <description>SET_GENERAL_PAGE_DESCRIPTION</description>
+        <field type="literal" id="user" value="$q->param('user')">
+            <label>LABEL_USER_ACCOUNT</label>
+        </field>
+        <field type="literal" id="name" value="$q->param('name')">
+            <label>USER_NAME</label>
+        </field>
+
+        <field
+            id="ghost"
+            type="select"
+            options="'NO','YES'"
+            value="display_general('ghost')">
+            <label>LABEL_GHOST</label>
+        </field>
+        <field
+            id="debug"
+            type="select"
+            options="'NO','YES'"
+            value="display_general('debug')">
+            <label>LABEL_DEBUG</label>
+        </field>
+        <field
+            id="mail-keep"
+            type="select"
+            options="'KEEP_NO','KEEP_YES','KEEP_NEW'"
+            value="display_general('keep')">
+            <label>LABEL_MAIL_RETRIEVE</label>
+        </field>
+        <field
+            id="forward-mail"
+            type="text"
+            size="50"
+            value="display_general('forwarder')"
+            validation="validate_mail()">
+            <label>LABEL_FORWARD_MAIL</label>
+        </field>
+
+        <subroutine src="show_copy_to()" />
+
+    </page>
+
+    <!-- page 2 -->
+    <page
+        name="SetAccounts"
+        pre-event="print_status_message()"
+        post-event="validate_change()">
+        <title>SET_ACCOUNTS_TITLE</title>
+        <description>SET_ACCOUNTS_PAGE_DESCRIPTION</description>
+        <field type="literal" id="user2" value="get_field('user')">
+            <label>LABEL_USER_ACCOUNT</label>
+        </field>
+        <field type="literal" id="name2" value="get_field('name')">
+            <label>USER_NAME</label>
+        </field>
+
+        <field
+            id="mail-server"
+            type="text"
+            size="40"
+            validation="validate_account_data(Server)"
+            value="display_account('Server')">
+            <label>LABEL_MAIL_SERVER</label>
+        </field>
+        <field
+            id="mail-type"
+            type="select"
+            options="'IMAP','POP3','SPOP3','SIMAP'"
+            value="display_account('Type')">
+            <label>LABEL_MAIL_TYPE</label>
+        </field>
+        <field
+            id="mail-account"
+            type="text"
+            size="40"
+            value="display_account('Account')"
+            validation="validate_account_data(Account)">
+            <label>LABEL_MAIL_ACCOUNT</label>
+        </field>
+        <field
+            id="mail-password"
+            type="text"
+            size="40"
+            value="display_account('Password')"
+            validation="validate_account_data(Password)">
+            <label>LABEL_MAIL_PASSWORD</label>
+        </field>
+        <field type="literal" id="ValidAccount" value="show_button_validate()">
+            <label>BLANK</label>
+        </field>
+
+        <subroutine src="show_accounts()" />
+        
+    </page>
+
+    <!-- page 3 
+        Note: This page is not used. It's a kludge to permit the next page
+        to work properly from a link on the front page. FormMagick needs
+        work. 
+        I Maybe don't need that ? (PS)
+    -->
+    <page
+        name="Dummy">
+    </page>
+
+    <!-- page 4 
+         This is only a wrapper to start a sub, and then go direct back
+         to the front page.
+    -->
+    <page
+        name="Service0"
+        post-event="remove_fetchmail_user">
+
+    </page>
+
+    <!-- page 5 
+         This is only a wrapper to start a sub, and then go direct back
+         to the front page.
+    -->
+    <page
+        name="Service1"
+        post-event="fetchmail_enable_disable">
+    </page>
+
+    <!-- page 6 
+         This is only a wrapper to start a sub, and then go direct back
+         to the front page.
+    -->
+    <page
+        name="Service2"
+        post-event="fetchmail_routing">
+    </page>
+
+    <!-- page 7 
+         This is only a wrapper to start a sub, and then go direct back
+         to the front page.
+    -->
+    <page
+        name="Service3"
+        post-event="fetchmail_routingSMTP">
+    </page>
+
+    <!-- page 8 
+         This is only a wrapper to start a sub, and then go direct back
+         to the front page.
+    -->
+    <page
+        name="Service4"
+        post-event="fetchmail_routingNNTP">
+    </page>
+
+    <!-- page 9 
+         This is only a wrapper to start a sub, and then go direct back
+         to the front page.
+    -->
+    <page
+        name="Service5"
+        post-event="fetchmail_SMTPProxy">
+    </page>
+
+</form>

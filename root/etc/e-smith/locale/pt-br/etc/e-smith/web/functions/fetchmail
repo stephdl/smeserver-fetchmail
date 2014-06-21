@@ -1,0 +1,334 @@
+<lexicon lang="pt-br">
+    <entry>
+        <base>FORM_TITLE</base>
+        <trans>Configurar Busca de Caixa Postal Externa</trans>
+    </entry>
+    <entry>
+        <base>FIRST_PAGE_DESCRIPTION</base>
+	    <trans><![CDATA[ <p> This panel allows configuration of external mailbox retrieval by your SME Server. What does this mean?<br> Some of your users may have external mailbox(es). Usually, the email clients on individual workstations have to be configured to fetch mail from these external mailboxes as well as from the normal mailboxes provided by the SME server. Using this control panel, the SME server can be configured to fetch mail from external mailboxes and then automatically forward these mails to internal mail boxes. This makes configuration of the email clients on individual workstations very easy.<br> Using this method of mail retrieval (and provided that the individual workstations are using IMAP) means that emails are backed up as part of the normal backup process.<br> Other functions available through this panel are:<br> - A mailbox can be distributed to many mailboxes<br> - You can create 'Ghost account' : Mails sent to this account are distributed to other(s) mailbox(es) only.<br> - logging of events for a mailboxes.<br> ]]></trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_SERVICE_0</base>
+        <trans>Habilitar Fetchmail</trans>
+    </entry>
+    <entry>
+        <base>SERVICE_0</base>
+        <trans>Fetchmail está desabilitado</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_SERVICE_1</base>
+        <trans>Desabilitar Fetchmail</trans>
+    </entry>
+    <entry>
+        <base>SERVICE_1</base>
+        <trans>Fetchmail está Habilitado</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTING_0</base>
+        <trans>Habilitar acesso a servidores POP e IMAP externos</trans>
+    </entry>
+    <entry>
+        <base>ROUTING_0</base>
+        <trans>Estações na rede interna não podem acessar servidores POP e IMAP externos</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTING_1</base>
+        <trans>Desabilitar acesso a servidores POP e IMAP externos</trans>
+    </entry>
+    <entry>
+        <base>ROUTING_1</base>
+        <trans>Estações na rede interna podem acessar servidores POP e IMAP externos</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGSMTP_0</base>
+        <trans>Habilitar acesso a servidores POP e IMAP externos</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGSMTP_0</base>
+        <trans>Estações na rede interna não podem acessar servidores SMTP externos</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGSMTP_1</base>
+        <trans>Desabilitar acesso a servidores SMTP externos</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGSMTP_1</base>
+        <trans>Estações na LAN podem acessar servidores SMTP externos</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGSMTPPROXY_0</base>
+        <trans>Forçar conexões SMTP através do Proxy do SME</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGSMTPPROXY_0</base>
+        <trans>Estações na rede interna tem acesso direto a servidores SMTP externos</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGSMTPPROXY_1</base>
+        <trans>Permite conexões SMTP diretas</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGSMTPPROXY_1</base>
+        <trans>Conexões SMTP a partir da rede interna para a internet passam pelo proxy do servidor SME</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGNNTP_0</base>
+        <trans>Habilitar acesso a servidores de news externos</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGNNTP_0</base>
+        <trans>Estações da rede interna não podem acessar servidores de News externos</trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_ROUTINGNNTP_1</base>
+        <trans>Desabilitar acesso servidor de news externo</trans>
+    </entry>
+    <entry>
+        <base>ROUTINGNNTP_1</base>
+        <trans>Estações da rede interna podem acessar servidores de news externos</trans>
+    </entry>
+    <entry>
+        <base>SHOW_FETCHMAIL_USERS</base>
+        <trans><![CDATA[ Below is a table summarizing the current users defined on this system with a summary of the fetchmail configuration for each user.<br> Here you can create, modify, and remove fetchmail rules for any user. ]]></trans>
+    </entry>
+    <entry>
+        <base>NO_USER_ACCOUNTS</base>
+        <trans>Atualmente não há usuários definidos neste sistema.</trans>
+    </entry>
+    <entry>
+        <base>SET_GENERAL_TITLE</base>
+        <trans>Definir regras gerais de busca de e-mail.</trans>
+    </entry>
+    <entry>
+        <base>SET_GENERAL_PAGE_DESCRIPTION</base>
+        <trans><![CDATA[ <p> Select the general information for the fetchmail accounts.<br> The specific mailboxes to retrieve will be set on the next screens. </p> ]]></trans>
+    </entry>
+    <entry>
+        <base>ERROR_NO_FINAL_RECIPIENT</base>
+        <trans><![CDATA[ Oups ! There is no final recipient for this rule.<br> Mails can be delivered to the local account. This mode is selected if you choose 'NO' for the 'Ghost Mode'.<br> Mails can be delivered to other local accounts. This mode is selected by checking one or more cases in the chart below.<br> Mails can be delivered to an external Mailbox. This mode is selected if an E-Mail is set in the 'Email address to forward mail' field.<br> You must set at least one kind of recipient. ]]></trans>
+    </entry>
+    <entry>
+        <base>LABEL_USER_ACCOUNT</base>
+        <trans>Conta do Usuário</trans>
+    </entry>
+    <entry>
+        <base>LABEL_COPY_TO</base>
+        <trans>Copiar e-mail para</trans>
+    </entry>
+    <entry>
+        <base>LABEL_GHOST</base>
+        <trans>Esta é uma 'conta fantasma' (usada somente para redistribuir e-mails) ?</trans>
+    </entry>
+    <entry>
+        <base>LABEL_DEBUG</base>
+        <trans>Você deseja ativar o debug para esta conta (ações do fetchmail serão logadas no arquivo /var/log/maillog) ?</trans>
+    </entry>
+    <entry>
+        <base>LABEL_SPY</base>
+        <trans>Você deseja que esta conta seja monitorada pela conta 'admin' ?</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_RETRIEVE</base>
+        <trans>O que você deseja fazer com os e-mails que estão nos servidores externos ?</trans>
+    </entry>
+    <entry>
+        <base>KEEP_NO</base>
+        <trans>Buscar todos e-mails</trans>
+    </entry>
+    <entry>
+        <base>KEEP_YES</base>
+        <trans>Ler os e-mail e deixá-los nos servidores</trans>
+    </entry>
+    <entry>
+        <base>KEEP_NEW</base>
+        <trans>Buscar apenas os e-mails novos</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_FORWARD</base>
+        <trans>Você deseja encaminhar estes e-mails ?</trans>
+    </entry>
+    <entry>
+        <base>FORWARD_GET</base>
+        <trans>Buscar somente para esta conta</trans>
+    </entry>
+    <entry>
+        <base>FORWARD_COPY</base>
+        <trans>Buscar para esta conta e encaminhar para outra conta de e-mails</trans>
+    </entry>
+    <entry>
+        <base>FORWARD_FORWARD</base>
+        <trans>Apenas encaminhar todos e-mails para outra conta de e-mails.</trans>
+    </entry>
+    <entry>
+        <base>LABEL_FORWARD_MAIL</base>
+        <trans>Endereço(s) de e-mail para encaminhar os e-mails (o formato é xxx@yyy.zz). Para definir mais de um endereço externo, apenas separe-os com o sinal de dois pontos ':'</trans>
+    </entry>
+    <entry>
+        <base>SET_ACCOUNTS_TITLE</base>
+        <trans>Definir informações de acesso ao e-mail externo</trans>
+    </entry>
+    <entry>
+        <base>SET_ACCOUNTS_PAGE_DESCRIPTION</base>
+        <trans><![CDATA[ <p> Here you can set the information needed to access your external mailboxes : Name of the server storing the mailbox, type of mailbox server, account name, account password. </p> ]]></trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_SERVER</base>
+        <trans>Nome ou endereço IP do servidor de e-mail externo</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_TYPE</base>
+        <trans>Protocolo para usar quando lendo e-mails</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_ACCOUNT</base>
+        <trans>A conta de usuário no servidor de e-mail</trans>
+    </entry>
+    <entry>
+        <base>LABEL_MAIL_PASSWORD</base>
+        <trans>A senha do usuário no servidor de e-mail</trans>
+    </entry>
+    <entry>
+        <base>POP3</base>
+        <trans>Pop</trans>
+    </entry>
+    <entry>
+        <base>IMAP</base>
+        <trans>Imap</trans>
+    </entry>
+    <entry>
+        <base>SPOP3</base>
+        <trans>SSL Pop (Experimental)</trans>
+    </entry>
+    <entry>
+        <base>SIMAP</base>
+        <trans>SSL Imap (Experimental)</trans>
+    </entry>
+    <entry>
+        <base>SHOW_FETCHMAIL_ACCOUNTS</base>
+        <trans><![CDATA[ <p> This is the list of external mailboxes already configured for this user. </p> ]]></trans>
+    </entry>
+    <entry>
+        <base>ERR_BADSERVER</base>
+        <trans><![CDATA[ This doesn't seems to be a valid server namei or IP address.<br> To be valid, this field must contain either a valid server name or a valid IP address.<br> A valid server name contains between two and 5 parts separated by dots '.'<br> For all parts but the last, characters allowed are letters, numbers and '-'. The parts can be of any size.<br> For the last part (also named tld), only letters are allowed, and the part must contain between two and seven characters.<br> A valid IP address is made with four decimal integers, each between 0 and 255. The four numbers are put together, separated by one dot. ]]></trans>
+    </entry>
+    <entry>
+        <base>ERR_BADCHARS</base>
+        <trans><![CDATA[ Oops ! I'm affraid you just entered one of the special characters we cannot allow. In theses fields, you can use any characters EXCEPT pipe '|' and the two very special characters, 0x1E and 0x1F. ]]></trans>
+    </entry>
+    <entry>
+        <base>ERR_FIELD_EMPTY</base>
+        <trans><![CDATA[ You cannot leave any of the three fields 'server name', 'user name' or 'user passord' empty. ]]></trans>
+    </entry>
+    <entry>
+        <base>BUTTON_LABEL_VALIDATE_ACCOUNT</base>
+        <trans>Validar Conta</trans>
+    </entry>
+    <entry>
+        <base>MAIL_SERVER</base>
+        <trans>Servidor de e-mail</trans>
+    </entry>
+    <entry>
+        <base>MAIL_TYPE</base>
+        <trans>Tipo de acesso ao e-mail</trans>
+    </entry>
+    <entry>
+        <base>MAIL_ACCOUNT</base>
+        <trans>Usuário da caixa postal no servidor</trans>
+    </entry>
+    <entry>
+        <base>MAIL_PASSWORD</base>
+        <trans>Senha da caixa postal no servidor</trans>
+    </entry>
+    <entry>
+        <base>fetchmail</base>
+        <trans>Busca de e-mail</trans>
+    </entry>
+    <entry>
+        <base>BLANK</base>
+        <trans><![CDATA[&nbsp;]]></trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_CHANGED_CONF</base>
+        <trans>Suas alterações na configuração do Fetchmail foram salvas com sucesso.</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_CHANGING_CONF</base>
+        <trans>Incapaz de aplicar as mudanças na configuração do Fetchmail.</trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_MODIFIED_ROUTING</base>
+        <trans>Suas alterações no acesso externo a servidores POP3 e IMAP4 a partir da rede interna foram salvas com sucesso.</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_MODIFYING_ROUTING</base>
+        <trans>Incapaz de aplicar as mudanças de configuração no acesso POP3 e IMAP4.</trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_MODIFIED_ROUTINGSMTP</base>
+        <trans>Suas alterações do acesso a servidores SMTP externos a partir da rede interna foi salva com sucesso.</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_MODIFYING_ROUTINGSMTP</base>
+        <trans>Incapaz de aplicar as mudanças na configuração do acesso SMTP.</trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_MODIFIED_ROUTINGNNTP</base>
+        <trans>Suas alterações do acesso a servidores NEWS externos a partir da rede interna foi salva com sucesso.</trans>
+    </entry>
+    <entry>
+        <base>ERROR_WHILE_MODIFYING_ROUTINGNNTP</base>
+        <trans>Incapaz de aplicar as mudanças na configuração do acesso NNTP.</trans>
+    </entry>
+    <entry>
+        <base>SUCCESSFULLY_MODIFIED_SMTPPROXY</base>
+        <trans>Suas alterações para a configuração de Proxy SMTP do SME foram salvas com sucesso.</trans>
+    </entry>
+    <entry>
+        <base>PREVIOUS</base>
+        <trans>Anterior</trans>
+    </entry>
+    <entry>
+        <base>VALIDATE</base>
+        <trans>Validar Mudanças !</trans>
+    </entry>
+    <entry>
+        <base>ERR_NO_FETCHMAIL_RECORD</base>
+        <trans>Não consigo buscar registro fetchmail do banco de dados de configurações.</trans>
+    </entry>
+    <entry>
+        <base>ERR_NO_SMTPFRONT-QMAIL_RECORD</base>
+        <trans>Não consigo buscar registro smtpfront-qmail do banco de dados de configurações.</trans>
+    </entry>
+    <entry>
+        <base>ERR_BADMAIL</base>
+        <trans><![CDATA[ The E-Mail address you gave doesn't seems to be valid.<br> A valid E-Mail contains only letters, digits and undescores in the name part. There can also be '-' and '.' in the name, but not at begining or end. The domain part (to the right of the @ sign) should only contain upper- and lowercase letters, numbers and the '-' character. The domain name normally contains between 1 and 4 dot (.) characters. The last word (the tld) can only contains letters and it should have a least 2 characters, but not more than 7.<br> You can set more than one external mailbox. In this case, just separate each e-mail address with a colon ':' ]]></trans>
+    </entry>
+    <entry>
+        <base>STATUS_1</base>
+        <trans>HABILITADO</trans>
+    </entry>
+    <entry>
+        <base>STATUS_0</base>
+        <trans>DESABILITADO</trans>
+    </entry>
+	<entry>
+	    <base>NB_EXT_BOX</base>
+	    <trans>Caixa Postal Externa</trans>
+	</entry>
+	<entry>
+	    <base>GHOST_ACCOUNT</base>
+	    <trans>Conta fantasma</trans>
+	</entry>
+	<entry>
+	    <base>DEBUG_MAILBOX</base>
+	    <trans>Caixa Postal em modo 'debug'</trans>
+	</entry>
+	<entry>
+	    <base>SPIED_MAILBOX</base>
+	    <trans>Caixa Postal sob supervisão</trans>
+	</entry>
+    <entry>
+        <base>SHOW_SCHEDULE_INFOS</base>
+        <trans><![CDATA[ <center><h4>Scheduling information</h4></center> E-mail retrieval is done at regular intervals. The scheduling rules are the same as the rules set in the 'E-Mails' panel.<br> If you want to change the schedule, simply change them in the E-Mail panel.<br> <b>NOTE!</b> : If you don't use ETRN or Multi-Drop, you cannot change the schedule !<br> To work around this limitation, do the following :<br> - Select ETRN and select your new schedule then 'Save'.<br> - Then select 'Standard (SMTP)' and 'Save' again. ]]></trans>
+    </entry>
+</lexicon>

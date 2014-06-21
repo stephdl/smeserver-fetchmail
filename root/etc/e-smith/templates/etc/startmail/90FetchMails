@@ -1,0 +1,50 @@
+{
+    my $status = $FetchMails{status};
+    my $fetchmailstatus = "disabled" ;
+    $fetchmailstatus = $fetchmail{ status } if ( defined $fetchmail{ status } ); 
+    if (defined $status)
+    {
+	if ($status eq "enabled" && $fetchmailstatus ne "enabled" )
+	{
+	    $command = "/bin/su - qmailr -s /bin/bash -c \\\n";
+	    $command .= "\t\"FETCHMAILHOME=/var/lock/fetchmail";
+	    $command .= " /etc/fetchmail\"";
+
+	    if ($AccessType eq 'dialup')
+	    {
+		$OUT .= "\n";
+		$OUT .= "# FetchMail dialup connection; if we're already connected, ";
+		$OUT .= "call fetchmail.\n";
+		$OUT .= "# otherwise, bring up the line (which will invoke ";
+		$OUT .= "fetchmail in\n";
+		$OUT .= "# the ip-up script).\n";
+		$OUT .= "\n";
+		$OUT .= "if /sbin/ifconfig | /bin/grep -q 'ppp'\n";
+		$OUT .= "then\n";
+		$OUT .= "  ${command}\n";
+		$OUT .= "else\n";
+		$OUT .= "  /usr/bin/killall -USR1 diald\n";
+		$OUT .= "fi\n";
+	    }
+	    else
+	    {
+		$OUT .= "\n";
+		$OUT .= "# FetchMails dedicated connection; just call fetchmail to get ";
+		$OUT .= "things started\n";
+		$OUT .= "${command}\n";
+	    }
+	}
+	else
+	{
+	    $OUT .= "\n";
+	    $OUT .= "# This service FetchMail has been flagged as 'disabled'\n";
+	    $OUT .= "# in the e-smith services database.\n";
+	}
+    }
+    else
+    {
+	$OUT .= "\n";
+	$OUT .= "# This service FetchMail does not exist in the e-smith services";
+	$OUT .= " database.\n";
+    }
+}

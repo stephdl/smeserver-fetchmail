@@ -1,0 +1,12 @@
+{
+    $OUT .= <<HERE;
+
+    LOCALIP=\$\(/sbin/e-smith/db configuration get LocalIP\)
+    if [ -z "\$LOCALIP" ]
+    then
+        # Set LOCALIP to internal loopback
+        OUTERNET=127.0.0.1
+    fi
+
+HERE
+}
