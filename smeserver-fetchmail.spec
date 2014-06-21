@@ -5,17 +5,17 @@
 Summary: sme module to generate fetchmail poll
 %define name smeserver-fetchmail
 Name: %{name}
-%define version 1.4
-%define release 2
+%define version 1.6
+%define release 1
 %define smepanel FetchMails
 Version: %{version}
 Release: %{release}%{?dist}
 License: GPL
 Group: Networking/Daemons
-Source: %{name}-%{version}.tgz
+Source: %{name}-%{version}.tar.gz
 BuildRoot: /var/tmp/%{name}-%{version}-%{release}-buildroot
 BuildArchitectures: noarch
-Requires: smeserver-release >= 8.0
+Requires: smeserver-release >= 9.0
 Requires: e-smith-email >= 4.16.0-18
 Requires: e-smith-formmagick >= 1.4.0-12
 BuildRequires: e-smith-devtools >= 1.13.1-03
@@ -24,6 +24,9 @@ Obsoletes: smeserver-fetchmail-utf8
 AutoReqProv: no
 
 %changelog
+* Sat Jun 21 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 1.6-1.sme
+- Initial release to sme9
+
 * Sun Jul 14 2013 JP Pialasse <tests@pialasse.com> 1.4-2.sme
 - apply locale 2013-07-14 patch
 
