@@ -6,7 +6,7 @@ Summary: sme module to generate fetchmail poll
 %define name smeserver-fetchmail
 Name: %{name}
 %define version 1.6
-%define release 2 
+%define release 3 
 %define smepanel FetchMails
 Version: %{version}
 Release: %{release}%{?dist}
@@ -24,6 +24,9 @@ Obsoletes: smeserver-fetchmail-utf8
 AutoReqProv: no
 
 %changelog
+* Sun Nov 2 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 1.6-3.sme
+-  Recovery of large attachments with fetchmail [SME:8630]
+
 * Sun Oct 5 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 1.6-2.sme
 - bug of .gitignore in  /etc/e-smith/web/panels/manager/cgi-bin
 

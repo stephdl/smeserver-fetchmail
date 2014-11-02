@@ -312,9 +312,12 @@
                         my $ssl = '';
                         if ( $mtype =~ s/^S// ) { $ssl = 'options ssl' }
 
-                		my $mdbg='-d0 --silent --syslog'; 
-                		if($Debug eq "YES") { $mdbg='-d0 --verbose --syslog'; }
-    	
+                       #We retrieve the $qmail{MaxMessageSize} to fix 
+                       #the max limit where emails won't be downloaded 
+                       my $size = $db->get_prop('qmail','MaxMessageSize') || '0';
+                       my $mdbg='-l' . $size . ' -d0 --silent --syslog'; 
+                       if($Debug eq "YES") { $mdbg='-l' . $size . ' -d0 --verbose --syslog'; }
+
                 		my $staticvalue  = "/usr/bin/fetchmail $mdbg --fetchmailrc - <<EOF\n" ;
                         $staticvalue .= "set postmaster \"postmaster\@$dom\"\n" ;
                         $staticvalue .= "set bouncemail\nset properties \"\"\n" ;
