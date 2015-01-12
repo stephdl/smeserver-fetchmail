@@ -6,7 +6,7 @@ Summary: sme module to generate fetchmail poll
 %define name smeserver-fetchmail
 Name: %{name}
 %define version 1.6
-%define release 3 
+%define release 4
 %define smepanel FetchMails
 Version: %{version}
 Release: %{release}%{?dist}
@@ -24,6 +24,10 @@ Obsoletes: smeserver-fetchmail-utf8
 AutoReqProv: no
 
 %changelog
+* Mon Jan 12 2015 stephane de Labrusse <stephdl@de-labrusse.fr> 1.6-4.sme
+- Add settings if smtpd TCPPort set to a non default value [sme: 8797]
+- code done by ecureuil <gentil_ecureuil@hotmail.com>
+
 * Sun Nov 2 2014 stephane de Labrusse <stephdl@de-labrusse.fr> 1.6-3.sme
 -  Recovery of large attachments with fetchmail [SME:8630]
 

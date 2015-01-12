@@ -342,7 +342,7 @@
                         $OUT .= "poll $mserv with proto $mtype$ServOpt\n" ;
                         $OUT .= "  user '$mname' $DestSMTPServer with password '" ;
                         $OUT .= "$mpass' is $name here $keep $ssl\n" ;
-                        $OUT .= "  smtphost 127.0.0.200\n" ;
+                        $OUT .= "  smtphost 127.0.0.200" . ($smtpd{TCPPort} ? "/$smtpd{TCPPort}" : "") . "\n";
                     	$OUT .="EOF\n";
             	    }
             	}
