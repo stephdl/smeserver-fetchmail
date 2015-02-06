@@ -336,13 +336,16 @@
                         $mname =~ s/[\']/\\x27/g ;
                         $mpass =~ s/[\']/\\x27/g ;
 
+                        #find the tcp port of smtpd
+                        my $tcpport = $db->get_prop('smtpd','TCPPort')||'25';
+
             		    $OUT .= "#\n";
                         $OUT .= "#   Mail N$FetchN Account for : $comment\n";
                         $OUT .= $staticvalue;
                         $OUT .= "poll $mserv with proto $mtype$ServOpt\n" ;
                         $OUT .= "  user '$mname' $DestSMTPServer with password '" ;
                         $OUT .= "$mpass' is $name here $keep $ssl\n" ;
-                        $OUT .= "  smtphost 127.0.0.200" . ($smtpd{TCPPort} ? "/$smtpd{TCPPort}" : "") . "\n";
+                        $OUT .= "  smtphost 127.0.0.200" . ($tcpport ? "/$tcpport" : "") . "\n";
                     	$OUT .="EOF\n";
             	    }
             	}

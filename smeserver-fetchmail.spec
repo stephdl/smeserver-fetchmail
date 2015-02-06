@@ -6,7 +6,7 @@ Summary: sme module to generate fetchmail poll
 %define name smeserver-fetchmail
 Name: %{name}
 %define version 1.6
-%define release 4
+%define release 5
 %define smepanel FetchMails
 Version: %{version}
 Release: %{release}%{?dist}
@@ -24,6 +24,9 @@ Obsoletes: smeserver-fetchmail-utf8
 AutoReqProv: no
 
 %changelog
+* Fri Feb 06 2015 stephane de Labrusse <stephdl@de-labrusse.fr> 1.6-5.sme
+- Corrected a typo in the detection of smtpd port in the template 90fetchmail
+ 
 * Mon Jan 12 2015 stephane de Labrusse <stephdl@de-labrusse.fr> 1.6-4.sme
 - Add settings if smtpd TCPPort set to a non default value [sme: 8797]
 - code done by ecureuil <gentil_ecureuil@hotmail.com>
